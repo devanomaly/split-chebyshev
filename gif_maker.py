@@ -6,14 +6,11 @@ def get_key(fp):
     numeric = filename.split("=")[-1]
     return int(numeric)
   
-def make_gif(frame_folder):
+def make_gif(frame_folder, file_name):
     resultados_glob = sorted(glob.glob("*.png"), key=get_key)
     for resultado in resultados_glob:
         print(resultado)
     frames = [Image.open(image) for image in resultados_glob]
     frame_one = frames[0]
     print(len(frames))
-    frame_one.save("cheby_simples.gif", format="GIF", append_images=frames,save_all=True, duration=50, loop=0)
-
-if __name__ == "__main__":
-    make_gif("/path/to/images")
+    frame_one.save(str(file_name)+".gif", format="GIF", append_images=frames,save_all=True, duration=50, loop=0)
