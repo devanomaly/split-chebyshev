@@ -6,7 +6,7 @@ def get_key(fp):
     numeric = filename.split("=")[-1]
     return int(numeric)
   
-def make_gif(frame_folder, file_name):
+def make_gif(file_name):
     resultados_glob = sorted(glob.glob("*.png"), key=get_key)
     for resultado in resultados_glob:
         print(resultado)
